@@ -9,5 +9,4 @@ To build a JAR:
   - Specify main class and click OK
 
 To run JAR on commandline: 
-- 'java -jar <name of JAR>'
-
+- 'java -jar {name of JAR}'
