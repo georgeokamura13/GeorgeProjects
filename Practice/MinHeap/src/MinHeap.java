@@ -32,41 +32,33 @@ public class MinHeap {
         }
 
         MinHeapNode newNode = new MinHeapNode(keptValue);
+        root = newNode;
 
-        // if left or right is null
-        if (this.left == null && this.right == null) {
+        // if left or right is null; left gets a height += 1
+        if (this.left == null) {
             this.left = new MinHeap();
             this.left.insert(insertingValue);
-            root = newNode;
-            height += 1;
-            return;
-        }
-        else if (this.left == null) {
-            this.left = new MinHeap();
-            this.left.insert(insertingValue);
-            root = newNode;
             height += 1;
             return;
         }
         else if (this.right == null) {
             this.right = new MinHeap();
             this.right.insert(insertingValue);
-            root = newNode;
             return;
         }
         else {
             // if both not null, compare heights and add to smallest height
             if (this.left.height <= this.right.height) {
                 this.left.insert(insertingValue);
-                root = newNode;
+                height = this.left.height + 1;
             }
             else {
                 this.right.insert(insertingValue);
-                root = newNode;
+                height = this.right.height + 1;
             }
         }
 
-    }
+   }
 
     public int getHeight() {
         return height;
