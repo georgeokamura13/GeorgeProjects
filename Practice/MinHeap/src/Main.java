@@ -18,8 +18,7 @@ public class Main {
 
         System.out.println("height: " + heap.getHeight());
 
-        heap.postorder();
-
-        heap.preorder();
+        System.out.println("postorder: " +heap.postorder());
+        System.out.println("preorder: " +heap.preorder());
     }
 }

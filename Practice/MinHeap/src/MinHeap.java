@@ -64,31 +64,42 @@ public class MinHeap {
         return height;
     }
 
-    public void postorder() {
+    public String postorder() {
+
+        String result = "";
 
         if(this.left != null) {
-            this.left.postorder();
+            result = result + this.left.postorder() + ",";
         }
         if(this.right != null) {
-            this.right.postorder();
+            result = result + this.right.postorder() + ",";
         }
         if(this.root != null) {
-            System.out.println("reading in postorder: " + this.root.getValue());
+            result = result + this.root.getValue();
         }
+
+        return result;
     }
 
-    public void preorder() {
+    public String preorder() {
+
+        String result = "";
 
         if(this.root != null) {
-            System.out.println("reading in preorder: " + this.root.getValue()); // just add conditional statement
-                                                                                // with % 2 for only odd values
+            result = result + this.root.getValue() + ","; // just add conditional statement
+                                                    // with % 2 for only odd values
         }
         if(this.left != null) {
-            this.left.preorder();
+            result = result + this.left.preorder() + ",";
         }
         if(this.right != null) {
-            this.right.preorder();
+            result = result + this.right.preorder();
         }
 
+        if(result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+            result = result.substring(0, result.length() - 1);
+        }
+
+        return result;
     }
 }
